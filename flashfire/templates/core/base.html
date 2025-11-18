@@ -1,4 +1,4 @@
-{% load static %}
+ {% load static %}
 <!doctype html>
 <html lang="en" x-data :dir="$store.appStore.dir" x-cloak>
 <head>
@@ -33,9 +33,10 @@
 <body class="wrapper_cus">
 <!-- Navbar -->
   {% include 'partials/navbar.html' %}
-  {% include 'partials/footer.html' %}
-
 {% block content %}{% endblock content %}
+{% include 'partials/footer.html' %}
+
+
 
     <!-- card model -->
     <div class="modal fade modal-overl mx-auto" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardLabel" aria-hidden="true">
@@ -2207,7 +2208,7 @@
     <script src="{% static 'assets/libs/flickity/flickity.pkgd.min.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
     <script src="{% static 'assets/js/app.js' %}"></script>
-
+    </div>
 
 </body>
 
