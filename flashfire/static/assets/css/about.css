@@ -1,0 +1,124 @@
+/* -----------------------------
+   Primary Colors & Base Design
+------------------------------*/
+:root {
+    --primary: #000000;    /* Changed to Black */
+    --dark: #222;
+    --light: #f7f7f7;
+    --text: #555;
+    --white: #fff;
+}
+
+/* -----------------------------
+   GLOBAL STYLES
+------------------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: var(--light);
+}
+
+/* -----------------------------
+   ABOUT SECTION
+------------------------------*/
+.about-section {
+    padding: 60px 20px;
+    background: var(--light);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Title */
+.title {
+    font-size: 40px;
+    text-align: center;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+.title span {
+    color: var(--primary);   /* Black */
+}
+
+.sub-title {
+    text-align: center;
+    color: var(--text);
+    margin-top: 5px;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+/* -----------------------------
+   CONTENT - TEXT & IMAGE
+------------------------------*/
+.about-content {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.text-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.text-box h2 {
+    color: var(--primary);   /* Black */
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.text-box p {
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* -----------------------------
+   PRIMARY BUTTON
+------------------------------*/
+.btn-primary {
+    display: inline-block;
+    background: var(--primary);    /* Black */
+    padding: 12px 25px;
+    border-radius: 5px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #333;   /* lighter black for hover */
+}
+
+/* -----------------------------
+   IMAGE SECTION
+------------------------------*/
+.image-box img {
+    width: 100%;
+    max-width: 330px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* -----------------------------
+   RESPONSIVE
+------------------------------*/
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-box img {
+        margin-top: 20px;
+    }
+}

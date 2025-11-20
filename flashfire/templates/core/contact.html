@@ -1,0 +1,57 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'assets/css/contact.css' %}">
+<section class="contact-section">
+    <div class="container">
+
+        <!-- Page Title -->
+        <h1 class="title">Contact <span>Us</span></h1>
+        <p class="sub-title">We’re here to help you with all your fireworks needs</p>
+
+        <div class="contact-grid">
+
+            <!-- LEFT SIDE - Contact Info -->
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>If you have questions, feedback, or business inquiries, feel free to contact us.</p>
+
+                <div class="info-box">
+                    <h3>Address</h3>
+                    <p>Flash Fireworks, Main Market Road, Sivakasi, Tamil Nadu</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Email</h3>
+                    <p>support@flashfireworks.com</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Phone</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE - Contact Form -->
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock content %}

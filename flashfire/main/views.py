@@ -3,5 +3,8 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'core/index.html')
 
-def base(request):
-    return render(request, 'core/base.html')
+def about_page(request):
+    return render(request, 'core/about.html')
+
+def contact(request):
+    return render(request, 'core/contact.html')
