@@ -34,7 +34,7 @@ File: Custom Bootstrap Css File
   --bs-$mustard: #c39d62;
   --bs-$acid-green: #94ccb9;
   --bs-$green-dark: #2b3f37;
-  --bs-$lima: #81be17;
+  --bs-$lima: #ffb100;
   --bs-$blue-dark: #32355d;
   --bs-$sea: #72a499;
   --bs-gray-100: #f6f6f8;
@@ -64,7 +64,7 @@ File: Custom Bootstrap Css File
   --bs-pink: #e91e63;
   --bs-acid-green: #94ccb9;
   --bs-green-dark: #2b3f37;
-  --bs-lima: #81be17;
+  --bs-lima: #ffbb1f
   --bs-orange: #ff8400;
   --bs-sea: #72a499;
   --bs-indigo: #0063d1;
@@ -87,7 +87,7 @@ File: Custom Bootstrap Css File
   --bs-pink-rgb: 233, 30, 99;
   --bs-acid-green-rgb: 148, 204, 185;
   --bs-green-dark-rgb: 43, 63, 55;
-  --bs-lima-rgb: 129, 190, 23;
+  --bs-lima-rgb: 242,160,29;
   --bs-orange-rgb: 255, 132, 0;
   --bs-sea-rgb: 114, 164, 153;
   --bs-indigo-rgb: 0, 99, 209;
