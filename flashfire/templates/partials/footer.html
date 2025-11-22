@@ -111,7 +111,7 @@
                                 </p>
                                 <p class="d-flex align-items-start text-muted gap-2">
                                     <i class="pegk pe-7s-mail fs-24"></i>
-                                    <a href="mailto:contact@company.com" class="text-reset">fireworksflash@gmail.com</a>
+                                    <a href="fireworksflash@gmail.com" class="text-reset">fireworksflash@gmail.com</a>
                                 </p>
                                 <p class="d-flex align-items-start text-muted gap-2">
                                     <i class="pegk pe-7s-call fs-24"></i>
@@ -134,16 +134,16 @@
                     <div class="col-lg-6">
                         <ul id="footer-menu" class="mt-2 mt-lg-0 list-unstyled d-flex align-items-center mb-0 justify-content-lg-end justify-content-center flex-wrap">
                             <li class="menu-item ">
-                                <a href="shop-filter-sidebar.html" class="text-muted mx-2">Shop</a>
+                                <a href="{% url 'home' %}" class="text-muted mx-2">HOME</a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{% url 'about' %}" class="text-muted mx-2">About Us</a>
+                                <a href="{% url 'product' %}" class="text-muted mx-2">PRODUCT</a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{% url 'contact' %}" class="text-muted mx-2">Contact</a>
+                                <a href="{% url 'about' %}" class="text-muted mx-2">ABOUT US</a>
                             </li>
                             <li class="menu-item ">
-                                <a href="#!" class="text-muted mx-2">Blog</a>
+                                <a href="{% url 'contact' %}" class="text-muted mx-2">CONTACT</a>
                             </li>
                         </ul>
                     </div>

@@ -1,48 +1,45 @@
 {% extends "core/base.html" %}
 {% load static %}
+
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Flash Fireworks</title>
+<!-- Link CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
 
-    <link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
-</head>
-<body>
-
-<!-- About Section -->
 <section class="about-section">
-    <div class="container">
+  <div class="container">
+    <!-- Title -->
+    <h1 class="title">About <span>Us</span></h1>
 
-        <h1 class="title"><span>Flash Fireworks</span></h1>
-        <p class="sub-title">Brightening Every Celebration</p>
+    <!-- Intro Paragraph -->
+    <p class="intro-text">
+      At Flash Fireworks, we create memorable celebrations with premium-quality fireworks.
+      Safety, quality, and joy are at the heart of everything we do.
+    </p>
 
-        <div class="about-content">
-            <div class="text-box">
-                <h2>Who We Are</h2>
-                <p>
-                    Flash Fireworks is a trusted brand offering high-quality crackers and
-                    celebration products for festivals, events, and special occasions.
-                    We focus on safety, quality, and creating unforgettable moments for our customers.
-                </p>
+    <!-- Two Vertical Sections -->
+    <div class="about-grid">
+      <!-- Left Section -->
+      <div class="box">
+        <h2>Who We Are</h2>
+        <p>
+          Flash Fireworks is a trusted brand providing high-quality crackers
+          and celebration products for festivals, events, and special occasions.
+          We focus on safety, quality, and unforgettable experiences for our customers.
+        </p>
+      </div>
 
-                <h2>Our Mission</h2>
-                <p>
-                    To provide safe, premium fireworks with modern packaging,
-                    affordable pricing, and timely delivery across India.
-                </p>
-            </div>
-
-            <div class="image-box">
-            </div>
-        </div>
-
+      <!-- Right Section -->
+      <div class="box">
+        <h2>Our Mission</h2>
+        <p>
+          To brighten every celebration with safe, premium fireworks.
+          We aim for timely delivery, modern packaging, and customer satisfaction
+          across India. We are committed to innovation and making every festival unforgettable.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
-</body>
-</html>
 {% endblock content %}

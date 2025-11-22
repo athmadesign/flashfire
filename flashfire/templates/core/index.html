@@ -1,64 +1,41 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block content %}
-<!-- main slide -->
-        <div>
-        <section class="kalles-home-section type_slideshow type_carousel kalles-medical kalles-cosmetics overflow-hidden">
-            <div class="slideshow" data-flickity='{ "fade":0,"cellAlign": "center","imagesLoaded": 0,"lazyLoad": 0,"freeScroll": 0,"wrapAround": true,"autoPlay" : 0,"pauseAutoPlayOnHover" : true, "rightToLeft": false, "prevNextButtons": false,"pageDots": true, "contain" : 1,"adaptiveHeight" : 1,"dragThreshold" : 5,"percentPosition": 1 }'>
-                <!-- first slide -->
-                <div class="slideshow__slide">
-                    <img src="{% static 'assets/images/home-cosmetics/main-slide-01.jpg' %}" alt="" class="position-absolute w-100 h-100 object-fit-cover">
-                    <div class="container position-relative">
-                        <div class="row">
-                            <div class="col-lg-4 offset-md-1">
-                                <div class="content">
-                                    <h5 class="text-uppercase fs-13 text-lima ls-normal">NEW PRODUCT</h5>
-                                    <h1 class="fs-55 font-playfair fw-semibold text-lima mb-3">Free Cleanser <br>
-                                        Goodness</h1>
-                                    <a class="btn btn-cosmetics d-inline-flex align-items-center justify-content-center rounded-0 text-uppercase  text-lima" href="shop.html">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- second slide -->
-                <div class="slideshow__slide">
-                   <img src="{% static 'assets/images/home-cosmetics/main-slide-03.jpg' %}" alt="" class="position-absolute w-100 h-100 object-fit-cover">
+<link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
+<section class="kalles-home-section type_slideshow type_carousel kalles-medical kalles-cosmetics overflow-hidden">
+    <div class="slideshow"
+         data-flickity='{
+             "fade": 0,
+             "cellAlign": "center",
+             "imagesLoaded": true,
+             "wrapAround": true,
+             "autoPlay": 4000,
+             "pauseAutoPlayOnHover": true,
+             "prevNextButtons": false,
+             "pageDots": true,
+             "contain": true
+         }'>
 
-                    <div class="container position-relative">
-                        <div class="row">
-                            <div class="col-lg-4 offset-md-2">
-                                <div class="content">
-                                    <h5 class="text-uppercase fs-13 text-white ls-normal">NEW COLLECTION</h5>
-                                    <h1 class="fs-55 font-playfair fw-semibold text-white mb-3">Green Tea <br> Seed
-                                        Serum</h1>
-                                    <a class="btn btn-cosmetics d-inline-flex align-items-center justify-content-center rounded-0 text-uppercase  text-lima" href="shop.html">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        {% for banner in banners %}
+        <div class="slideshow__slide banner-slide" style="background-image: url('{{ banner.image.url }}');">
+            <div class="banner-overlay"></div>
+            <div class="container banner-content d-flex align-items-center">
+                <div class="col-lg-6 col-md-8">
+                    <h1 class="banner-title" style="color: #ffffff;">{{ banner.title }}</h1>
+                    <h6 class="banner-subtitle" style="color:#ffffff;">{{ banner.subtitle }}</h6>
+                    <a class="btn-custom" href="#">Shop Now</a>
                 </div>
-
-                <!-- third slide -->
-                <div class="slideshow__slide">
-                    <img src="{% static 'assets/images/home-cosmetics/main-slide-02.jpg' %}" alt="" class="position-absolute w-100 h-100 object-fit-cover">
-
-                    <div class="container position-relative">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6">
-                                <div class="content text-center">
-                                    <h5 class="text-uppercase fs-13 text-white ls-normal">NEW COLLECTION</h5>
-                                    <h1 class="fs-55 font-playfair fw-semibold text-white mb-3">UV Protection Cream</h1>
-                                    <a class="btn btn-cosmetics d-inline-flex align-items-center justify-content-center rounded-0 text-uppercase  text-lima" href="shop.html">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end third slide -->
             </div>
-        </section>
-        <!-- end main slide -->
+        </div>
+        {% empty %}
+        <p class="text-center">No banners available</p>
+        {% endfor %}
+
+    </div>
+</section>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
           <section class="kalles-cosmetics-trending-products pb-4">
             <div class="container">
                 <div class="row justify-content-center">
