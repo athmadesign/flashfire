@@ -23,7 +23,7 @@
                 <div class="col-lg-6 col-md-8">
                     <h1 class="banner-title" style="color: #ffffff;">{{ banner.title }}</h1>
                     <h6 class="banner-subtitle" style="color:#ffffff;">{{ banner.subtitle }}</h6>
-                    <a class="btn-custom" href="#">Shop Now</a>
+                    <a class="btn-custom" href="{% url 'product' %}">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -49,258 +49,31 @@
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
-                <div class="row my-4 py-2" data-flickity='{"imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": 1,"pageDots": false, "autoPlay" : 0, "pauseAutoPlayOnHover" : true, "rightToLeft": false }'>
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-                       <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-13.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
 
-                            <div class="position-relative overflow-hidden main">
-                                <span class="new-label bg-success text-white rounded-circle"> New </span>
-                                <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-14.jpg' %}' : imageUrl" alt="" class="img-fluid">
+                <section class="trending-products py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for product in trending_products %}
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="card h-100">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="text-muted">₹{{ product.price }}</p>
+                        <a href="{% url 'product_detail' product.slug %}" class="btn btn-sm" style="background-color: #FFD700; color: #000;">View Details</a>
 
-                                <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist"><i class="facl facl-heart-o text-white"></i></a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Skin Medical HA5</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$29.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-                       <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-05.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-
-                            <div class="position-relative overflow-hidden main">
-                                <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-06.jpg' %}' : imageUrl" alt="" class="img-fluid">
-
-                                <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist"><i class="facl facl-heart-o text-white"></i></a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Skin Fit Glow Cushion</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$49.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-                       <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-15.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-
-                            <div class="position-relative overflow-hidden main">
-                                <span class="new-label bg-danger text-white rounded-circle"> -34% </span>
-                                <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-16.jpg' %}' : imageUrl" alt="" class="img-fluid">
-
-                                <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist"><i class="facl facl-heart-o text-white"></i></a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">White Dew Milky Cleanser</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <del>$98.00</del>
-                                    <span class="text-danger">$65.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-                       <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-17.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-
-                            <div class="position-relative overflow-hidden main">
-                                <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-18.jpg' %}' : imageUrl" alt="" class="img-fluid">
-
-                                <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist"><i class="facl facl-heart-o text-white"></i></a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Water Bank Hydro Essence</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$49.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-                       <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-19.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-
-                            <div class="position-relative overflow-hidden main">
-                                <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-20.jpg' %}' : imageUrl" alt="" class="img-fluid">
-
-                                <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist"><i class="facl facl-heart-o text-white"></i></a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">My Foundation All Day Long Wear</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$45.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-                        <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-01.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-    <div class="position-relative overflow-hidden main">
-        <span class="new-label bg-danger text-white rounded-circle"> Hot </span>
-        <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-02.jpg' %}' : imageUrl" alt="" class="img-fluid">
-        <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist"><i class="facl facl-heart-o text-white"></i></a>
-
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Laneige White Dew Emulsion</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$55.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-6 px-12">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-13.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <span class="new-label bg-danger text-white rounded-circle"> Hot </span>
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-14.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
-
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Skin Medical HA5</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$29.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                  <div class="col-lg-3 col-md-3 col-6 px-12">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-05.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-06.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
-
-                                   <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Skin Fit Glow Cushion</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$49.00</span>
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div><!--end container-->
-        </section><!--end section-->
+            </div>
+            {% empty %}
+            <p class="text-center">No trending products available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
 
         <section class="cat-section">
             <div class="container">
@@ -309,7 +82,7 @@
                         <div class="text-center mb-4 pb-2">
                             <div>
                                 <h1 class="position-relative text-capitalize font-playfair text-lima fw-medium">
-                                    <span>Welcome to Kalles Natural Skincare</span>
+                                    <span>Welcome to Flash Fire–Light Up Every Moment</span>
                                 </h1>
                                 <span class="dn tt_divider"><span></span><i class="la la-spa text-muted"></i><span></span></span>
                             </div>
@@ -320,21 +93,21 @@
                     <div class="col-md-6">
                         <div class="row g-4">
                             <div class="col-lg-12">
-                                <a href="#!" class="d-block position-relative cat_grid_item overflow-hidden h-505">
-                                    <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/cat-banner-01.jpg' %}');">
+                                <a href="{% url 'product' %}" class="d-block position-relative cat_grid_item overflow-hidden h-505">
+                                    <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/banner2.jpg' %}');">
 
                                     </div>
                                     <div class="cat-grid-button text-body">
-                                        <div class="cat_grid_item__title">Accessories</div>
+                                        <div class="cat_grid_item__title">SHOP NOW</div>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-12">
-                                <a href="#!" class="d-block position-relative cat_grid_item overflow-hidden h-315">
-                                   <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/cat-banner-02.jpg' %}');">
+                                <a href="{% url 'product' %}" class="d-block position-relative cat_grid_item overflow-hidden h-315">
+                                   <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/banner1.jpg' %}');">
                                     </div>
                                     <div class="cat-grid-button text-body">
-                                        <div class="cat_grid_item__title">Skincare</div>
+                                        <div class="cat_grid_item__title">SHOP NOW</div>
                                     </div>
                                 </a>
                             </div>
@@ -343,22 +116,22 @@
                     <div class="col-md-6">
                         <div class="row g-4">
                             <div class="col-lg-12">
-                                <a href="#!" class="d-block position-relative cat_grid_item overflow-hidden h-410">
-                                    <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/cat-banner-03.jpg' %}');">
+                                <a href="{% url 'product' %}"  class="d-block position-relative cat_grid_item overflow-hidden h-410">
+                                    <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/banner.jpg' %}');">
 
                                     </div>
                                     <div class="cat-grid-button text-body">
-                                        <div class="cat_grid_item__title">Bath & Body</div>
+                                        <div class="cat_grid_item__title">SHOP NOW</div>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-12">
-                                <a href="#!" class="d-block position-relative cat_grid_item overflow-hidden h-410">
-                                    <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/cat-banner-04.jpg' %}');">
+                                <a href="{% url 'product' %}" class="d-block position-relative cat_grid_item overflow-hidden h-410">
+                                    <div class="h-100 w-100 cat-grid-img" style="background-image: url('{% static 'assets/images/home-cosmetics/banner4.jpg' %}');">
 
                                     </div>
                                     <div class="cat-grid-button text-body">
-                                        <div class="cat_grid_item__title">Makeup Brushes</div>
+                                        <div class="cat_grid_item__title">SHOP NOW</div>
                                     </div>
                                 </a>
                             </div>
@@ -380,261 +153,61 @@
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
-                <div class="row g-4 mt-4">
-                    <div class="col-md-3 col-6">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-15.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <span class="new-label bg-danger text-white rounded-circle"> -34% </span>
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-16.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
+                <div class="row g-6 mt-6">
+                    <section class="new-arrival-products py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for product in new_arrival_products %}
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="card h-100 topbar-product-card overlay-hover" x-data="{ imageUrl: '{{ product.image.url }}', isHovered: false }"
+                     x-on:mouseenter="isHovered = true" x-on:mouseleave="isHovered = false">
+
+                    <div class="position-relative overflow-hidden main">
+                        {% if product.old_image %}
+                        <img :src="isHovered ? '{{ product.old_image2.url }}' : imageUrl" class="img-fluid" alt="{{ product.name }}">
+                        {% else %}
+                        <img src="{{ product.image2.url }}" class="img-fluid" alt="{{ product.name }}">
+                        {% endif %}
 
 
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">White Dew Milky Cleanser</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <del>$98.00</del>
-                                    <span class="text-danger">$98.00</span>
-                                </p>
-                            </div>
+                        <div class="product-button d-none d-lg-flex flex-column gap-2">
+                            <a href="{% url 'product_detail' product.slug %}" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
+                            <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal">
+                                <span>Quick Shop</span> <i class="iccl iccl-cart"></i>
+                            </button>
                         </div>
-                    </div><!--end col-->
-                    <div class="col-md-3 col-6">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-11.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-12.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
 
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Fresh Calming Balancing Toner</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$49.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-md-3 col-6">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-21.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-22.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
-
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Advanced Hydrating Conditioner</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$28.00</span>
-                                </p>
-                            </div>
+                        <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0,0,0,0.1);">
+                            <a href="{% url 'product_detail' product.slug %}" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height:36px;">
+                                <i class="iccl iccl-eye fw-semibold"></i>
+                            </a>
+                            <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height:36px;" data-bs-toggle="modal" data-bs-target="#cardModal">
+                                <i class="iccl iccl-cart fw-semibold"></i>
+                            </button>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-6">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-13.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <span class="new-label bg-success text-white rounded-circle"> New </span>
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-14.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Skin Medical HA5</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$29.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-md-3 col-6">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-01.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <span class="new-label bg-danger text-white rounded-circle"> Hot </span>
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-02.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
-
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Laneige White Dew Emulsion</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$55.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-md-3 col-6">
-    <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-07.jpg' %}', isHovered: false }"
-         class="topbar-product-card overlay-hover"
-         x-on:mouseenter="isHovered = true"
-         x-on:mouseleave="isHovered = false">
-        <div class="position-relative overflow-hidden main">
-            <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-08.jpg' %}' : imageUrl" alt="" class="img-fluid">
-            <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-                <i class="facl facl-heart-o text-white"></i>
-            </a>
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Dr.Jart Sensitive Sun Protector</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$35.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-md-3 col-6">
-                        <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-04.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-    <div class="position-relative overflow-hidden main">
-        <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-05.jpg' %}' : imageUrl" alt="" class="img-fluid">
-        <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-            <i class="facl facl-heart-o text-white"></i>
-        </a>
-
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Les Beiges Water Fresh Tint Light</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$38.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-md-3 col-6">
-                        <div x-data="{ imageUrl: '{% static 'assets/images/home-cosmetics/pr-14.jpg' %}', isHovered: false }"
-     class="topbar-product-card overlay-hover"
-     x-on:mouseenter="isHovered = true"
-     x-on:mouseleave="isHovered = false">
-    <div class="position-relative overflow-hidden main">
-        <img :src="isHovered ? '{% static 'assets/images/home-cosmetics/pr-15.jpg' %}' : imageUrl" alt="" class="img-fluid">
-        <a href="#" class="wishlistadd position-absolute" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add to Wishlist">
-            <i class="facl facl-heart-o text-white"></i>
-        </a>
-
-
-                                <div class="product-button d-none d-lg-flex flex-column gap-2">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                                    <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14"><span>Quick Shop</span>
-                                        <i class="iccl iccl-cart"></i></button>
-                                </div>
-                                <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);">
-                                    <a href="#exampleModal" data-bs-toggle="modal" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;"><i class="iccl iccl-eye fw-semibold"></i></a>
-                                    <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height: 36px;" data-bs-toggle="modal" data-bs-target="#cardModal" class="btn rounded-pill fs-14">
-                                        <i class="iccl iccl-cart fw-semibold"></i></button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <h6 class="mb-1 fs-16 fw-semibold font-playfair"><a href="product-detail-layout-01.html" class="main_link_lima">Advanced Hydrating Shampoo</a></h6>
-                                <p class="mb-0 fs-14 text-muted">
-                                    <span>$32.00</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!--end col-->
+                    <div class="mt-3 text-center">
+                        <h6 class="mb-1 fs-16 fw-semibold font-playfair">
+                            <a href="{% url 'product_detail' product.slug %}" class="main_link_lima">{{ product.name }}</a>
+                        </h6>
+                        {% if product.old_price %}
+                        <p class="mb-0 fs-14 text-muted">
+                            <del>₹{{ product.old_price }}</del>
+                            <span class="text-danger">₹{{ product.price }}</span>
+                        </p>
+                        {% else %}
+                        <p class="mb-0 fs-14 text-muted">₹{{ product.price }}</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </section>
+            {% empty %}
+            <p class="text-center">No new arrivals available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
         <section class="overflow-hidden">
     <div class="container-fuild px-0">
@@ -642,37 +215,37 @@
 
             <div class="col-md-2 col-6">
                 <div class="overflow-hidden img-zoom">
-                    <img src="{% static 'assets/images/home-cosmetics/intg-01.jpg' %}" alt="" class="img-fluid h-100">
+                    <img src="{% static 'assets/images/home-cosmetics/flash11.png' %}" alt="" class="img-fluid h-100">
                 </div>
             </div>
 
             <div class="col-md-2 col-6">
                 <div class="overflow-hidden img-zoom">
-                    <img src="{% static 'assets/images/home-cosmetics/intg-02.jpg' %}" alt="" class="img-fluid h-100">
+                    <img src="{% static 'assets/images/home-cosmetics/flash66.png' %}" alt="" class="img-fluid h-100">
                 </div>
             </div>
 
             <div class="col-md-2 col-6">
                 <div class="overflow-hidden img-zoom">
-                    <img src="{% static 'assets/images/home-cosmetics/intg-03.jpg' %}" alt="" class="img-fluid h-100">
+                    <img src="{% static 'assets/images/home-cosmetics/flash55.png' %}" alt="" class="img-fluid h-100">
                 </div>
             </div>
 
             <div class="col-md-2 col-6">
                 <div class="overflow-hidden img-zoom">
-                    <img src="{% static 'assets/images/home-cosmetics/intg-04.jpg' %}" alt="" class="img-fluid h-100">
+                    <img src="{% static 'assets/images/home-cosmetics/flash22.png' %}" alt="" class="img-fluid h-100">
                 </div>
             </div>
 
             <div class="col-md-2 col-6">
                 <div class="overflow-hidden img-zoom">
-                    <img src="{% static 'assets/images/home-cosmetics/intg-05.jpg' %}" alt="" class="img-fluid h-100">
+                    <img src="{% static 'assets/images/home-cosmetics/flash33.png' %}" alt="" class="img-fluid h-100">
                 </div>
             </div>
 
             <div class="col-md-2 col-6">
                 <div class="overflow-hidden img-zoom">
-                    <img src="{% static 'assets/images/home-cosmetics/intg-06.jpg' %}" alt="" class="img-fluid h-100">
+                    <img src="{% static 'assets/images/home-cosmetics/flash.png' %}" alt="" class="img-fluid h-100">
                 </div>
             </div>
 
@@ -681,41 +254,4 @@
 </section>
 
 
-       <section class="kellas-medical-brand-list py-5 position-relative">
-    <div class="container">
-        <div class="row justify-content-between d-flex align-items-center" data-flickity='{"imagesLoaded": 0, "adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold": 5, "cellAlign": "left", "wrapAround": true, "prevNextButtons": false, "percentPosition": 1, "pageDots": false, "autoPlay": 0, "pauseAutoPlayOnHover": true }' dir="ltr">
-
-            <div class="col-6 col-sm-4 w-lg-20 brand-item">
-                <a href="#!">
-                    <img src="{% static 'assets/images/home-cosmetics/br1.png' %}" alt="" class="img-fluid max-w-200 mx-auto d-block">
-                </a>
-            </div><!--end col-->
-
-            <div class="col-6 col-sm-4 w-lg-20 brand-item">
-                <a href="#!">
-                    <img src="{% static 'assets/images/home-cosmetics/br2.png' %}" alt="" class="img-fluid max-w-200 mx-auto d-block">
-                </a>
-            </div><!--end col-->
-
-            <div class="col-6 col-sm-4 w-lg-20 brand-item">
-                <a href="#!">
-                    <img src="{% static 'assets/images/home-cosmetics/br3.png' %}" alt="" class="img-fluid max-w-200 mx-auto d-block">
-                </a>
-            </div><!--end col-->
-
-            <div class="col-6 col-sm-4 w-lg-20 brand-item">
-                <a href="#!">
-                    <img src="{% static 'assets/images/home-cosmetics/br4.png' %}" alt="" class="img-fluid max-w-200 mx-auto d-block">
-                </a>
-            </div><!--end col-->
-
-            <div class="col-6 col-sm-4 w-lg-20 brand-item">
-                <a href="#!">
-                    <img src="{% static 'assets/images/home-cosmetics/br5.png' %}" alt="" class="img-fluid max-w-200 mx-auto d-block">
-                </a>
-
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section>
 {% endblock content %}

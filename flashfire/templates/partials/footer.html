@@ -8,7 +8,7 @@
                         </button>
                         <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <a href="#!">
-                                <img src="{% static 'assets/images/home-cosmetics/logo1-removebg-preview.png' %}" alt="" height="120">
+                                <img src="{% static 'assets/images/home-cosmetics/logo1-removebg-preview.png' %}" alt="" height="100">
                             <P>Flash Fire – Brighten every celebration with safe, vibrant, and high-quality fireworks.</P>
                             </a>
                             <div class="mt-4 pt-2">
@@ -40,12 +40,18 @@
                     </div><!--end col-->
                     <div class="col-lg-2 col-md-3 mb-2 accordion-item footer-accordion-item">
                         <button class="accordion-button footer-accordion-button px-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <h5 class="font-playfair">Infomation</h5>
+                            <h5 class="font-playfair">Information</h5>
                         </button>
-                        <h5 class="fw-medium d-none d-md-block font-playfair">Infomation</h5>
+                        <h5 class="fw-medium d-none d-md-block font-playfair">Information</h5>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="mt-md-4 pt-md-2">
                                 <ul class="menu list-unstyled">
+                                    <li class="menu-item">
+                                        <a href="{% url 'home' %}" class="text-muted">Home</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{% url 'product' %}" class="text-muted">Products</a>
+                                    </li>
                                     <li class="menu-item">
                                         <a href="{% url 'about' %}" class="text-muted">About Us</a>
                                     </li>
@@ -53,16 +59,10 @@
                                         <a href="{% url 'contact' %}" class="text-muted">Contact Us</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#!" class="text-muted">Terms &amp; Conditions</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#!" class="text-muted">Returns &amp; Exchanges</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#!" class="text-muted">Shipping &amp; Delivery</a>
-                                    </li>
-                                    <li class="menu-item">
                                         <a href="#!" class="text-muted">Privacy Policy</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#!" class="text-muted">Terms &amp; Conditions</a>
                                     </li>
                                 </ul>
                             </div>
@@ -89,9 +89,6 @@
                                         <a href="#!" class="text-muted">Size Guide</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#!" class="text-muted">FAQs 2</a>
-                                    </li>
-                                    <li class="menu-item">
                                         <a href="#!" class="text-muted">FAQs</a>
                                     </li>
                                 </ul>
@@ -107,15 +104,15 @@
                             <div class="mt-md-4 pt-md-2">
                                  <p class="d-flex align-items-start text-muted gap-2">
                                     <i class="pegk pe-7s-map-marker fs-24"></i>
-                                    <span>Flash Traders<br> <span class="pl__30">Near R.C.M Hospital,Tripunithura</span></span>
+                                    <span>Flash Traders<br><span class="pl__30">Near R.C.M Hospital,Tripunithura</span></span>
                                 </p>
                                 <p class="d-flex align-items-start text-muted gap-2">
                                     <i class="pegk pe-7s-mail fs-24"></i>
-                                    <a href="fireworksflash@gmail.com" class="text-reset">fireworksflash@gmail.com</a>
+                                    <a href="fireworksflash@gmail.com"class="text-reset">fireworksflash@gmail.com</a>
                                 </p>
                                 <p class="d-flex align-items-start text-muted gap-2">
                                     <i class="pegk pe-7s-call fs-24"></i>
-                                    <span>9645557676 </span>
+                                    <span>9645557676</span>
                                 </p>
                             </div>
                         </div>

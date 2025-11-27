@@ -19,13 +19,13 @@
 }
 
 .title {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: bold;
     text-align: center;
 }
 
-.title span {
-    color: var(--primary);
+.about-section .title span {
+    color: #FFFF00;   /* Yellow for "Us" */
 }
 
 .sub-title {
