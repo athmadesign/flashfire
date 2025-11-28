@@ -1,4 +1,7 @@
+{% extends "core/base.html" %}
 {% load static %}
+
+{% block content %}
 <!doctype html>
 <html lang="en" x-data :dir="$store.appStore.dir" x-cloak>
 <head>
@@ -117,21 +120,21 @@
                 <h5 class="fw-bold mt-3">Description</h5>
                 <p class="text-muted">{{ product.description }}</p>
 
-                <!-- Buttons -->
-                <div class="d-flex flex-wrap gap-2 mt-3">
-                    <button data-bs-toggle="offcanvas" href="#shoppingCartOffcanvas"
-                            class="btn btn-dark px-4 py-2">
-                        <i class="iccl iccl-cart"></i> BUY NOW
-                    </button>
+             <div class="d-flex gap-2 mt-3">
 
-                    <a href="/product/" class="btn btn-outline-secondary px-4 py-2">
-                        Back to Products
-                    </a>
-                </div>
+    <a href="https://wa.me/919645557676?text=I%20want%20to%20buy%20this%20product:%20{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}"
+       target="_blank"
+       class="btn btn-dark px-4 py-2 d-flex align-items-center">
+        <i class="iccl iccl-cart me-2"></i> BUY NOW
+    </a>
 
-            </div>
+    <a href="/product/"
+       class="btn btn-outline-secondary px-4 py-2 d-flex align-items-center">
+        Back to Products
+    </a>
 
-        </div>
+</div>
+
 
     </div>
 </section>
@@ -152,3 +155,4 @@
 
 </body>
 </html>
+{% endblock content %}

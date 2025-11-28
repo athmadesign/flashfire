@@ -81,9 +81,9 @@
                     <div class="col-lg-8">
                         <div class="text-center mb-4 pb-2">
                             <div>
-                                <h1 class="position-relative text-capitalize font-playfair text-lima fw-medium">
+                                <h2 class="position-relative text-capitalize font-playfair text-lima fw-medium">
                                     <span>Welcome to Flash Fire–Light Up Every Moment</span>
-                                </h1>
+                                </h2>
                                 <span class="dn tt_divider"><span></span><i class="la la-spa text-muted"></i><span></span></span>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                     </div><!--end col-->
                 </div><!--end row-->
                 <div class="row g-6 mt-6">
-                    <section class="new-arrival-products py-5">
+                    <section class="new-arrival-products py-4">
     <div class="container">
         <div class="row g-4">
             {% for product in new_arrival_products %}
@@ -172,18 +172,23 @@
 
                         <div class="product-button d-none d-lg-flex flex-column gap-2">
                             <a href="{% url 'product_detail' product.slug %}" class="btn rounded-pill fs-14"><span>Quick View</span> <i class="iccl iccl-eye"></i></a>
-                            <button type="button" class="btn rounded-pill fs-14" data-bs-toggle="modal" data-bs-target="#cardModal">
-                                <span>Quick Shop</span> <i class="iccl iccl-cart"></i>
-                            </button>
+                            <div class="d-flex flex-wrap gap-2 mt-3">
+
+
+    <!-- Buy Now Button (WhatsApp with product image) -->
+    <a href="https://wa.me/919645557676?text=I%20want%20to%20buy%20this%20product:%20{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}"
+       target="_blank"
+       class="btn rounded-pill fs-14">
+        <span>Quick Shop</span> <i class="iccl iccl-cart"></i>
+    </a>
+
+</div>
                         </div>
 
                         <div class="position-absolute d-lg-none bottom-0 end-0 d-flex flex-column bg-white rounded-pill m-2" style="z-index: 1; box-shadow: 1px 1px 1px rgba(0,0,0,0.1);">
                             <a href="{% url 'product_detail' product.slug %}" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height:36px;">
                                 <i class="iccl iccl-eye fw-semibold"></i>
                             </a>
-                            <button type="button" class="btn responsive-cart rounded-pill fs-14 p-2" style="width:36px; height:36px;" data-bs-toggle="modal" data-bs-target="#cardModal">
-                                <i class="iccl iccl-cart fw-semibold"></i>
-                            </button>
                         </div>
                     </div>
 
@@ -253,5 +258,6 @@
     </div>
 </section>
 
-
+                </div>
+            </div>
 {% endblock content %}

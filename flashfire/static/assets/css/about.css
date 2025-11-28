@@ -14,12 +14,9 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 15px;
-    color: #FFFF00;   /* Only ABOUT US color changed to yellow */
+       /* Only ABOUT US color changed to yellow */
 }
 
-.about-section .title span {
-    color: #FFFF00;   /* Yellow for "Us" */
-}
 
 /* ---------- Intro Paragraph ---------- */
 .about-section .intro-text {

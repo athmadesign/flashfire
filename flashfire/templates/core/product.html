@@ -34,16 +34,22 @@
 <body class="" x-data="{ showMenuScroll : false }">
     <!-- main slide -->
 
-<div style="width: 100%; height: 500px; background-image: url('{% static 'assets/images/shop/shop-banner.jpg' %}'); background-position: center;" class="position-relative">
+<div class="position-relative"
+     style="width: 100%; height: 350px;
+     background-image: url('{% static "assets/images/shop/banner.jpg" %}');
+     background-size: cover;
+     background-position: center;">
 
-        <div class="position-absolute top-0 start-0 right-0 bottom-0 bg-dark w-100 opacity-50"></div>
-        <div class=" container">
-            <div class="text-white text-center py-1 position-relative">
-                <h4 class="fs-30 fw-medium">Women</h4>
-                <p class="fs-20">Shop through our latest selection of Women’s Clothing and Accessories.</p>
-            </div>
-        </div>
+    <!-- Dark overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+
+    <!-- Centered Text -->
+    <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+        <h4 class="fs-30 fw-medium">Products</h4>
     </div>
+
+</div>
+
     <!-- end main slide -->
         <!-- filter option -->
         <div class="p-4 filter-box d-none mt-4">
